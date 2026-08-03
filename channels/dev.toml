@@ -1,0 +1,36 @@
+# evo-kiosk release-plane channel pointer — dev
+#
+# Names the currently-tracked evo-kiosk-browser version for the `dev`
+# channel. A single piece today — the on-device WebKit session-shell
+# binary — cross-compiled per supported target triple.
+#
+# Signed with the evo project release key. Consumers refuse to
+# apply an unsigned or invalidly-signed pointer.
+
+schema_version = 0
+publisher = "org.evoframework"
+channel = "dev"
+updated_at = "2026-08-03T00:00:00Z"
+
+# Piece pointer. A release promotion advances this pointer as the
+# eng-side promote lands a new evo-kiosk tag. Version strings match
+# the semver tags on the public source repo.
+#
+# Placeholder: no evo-kiosk release has been cut yet. Empty version
+# strings signal "no release tracked yet"; consumers refuse the
+# pointer in that state.
+
+[[pointers]]
+piece = "evo-kiosk-browser"
+version = ""
+
+# Supported architectures for the piece. Every consumer resolves
+# against every triple that appears in the release under `binaries/`.
+# The publish workflow refuses to write a channel pointer that names
+# an architecture with no corresponding signed binary in this repo.
+
+architectures = [
+    "aarch64-unknown-linux-gnu",
+    "x86_64-unknown-linux-gnu",
+    "armv7-unknown-linux-gnueabihf",
+]
